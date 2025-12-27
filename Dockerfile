@@ -40,9 +40,7 @@ RUN \
     npm ci --no-audit
 
 COPY --chown=node:node . .
-
-# Copy librechat.yaml config file if it exists
-COPY --chown=node:node librechat.yaml* /app/ || true
+COPY --chown=node:node librechat.yaml ./librechat.yaml || true
 
 RUN \
     # React client build with configurable memory
