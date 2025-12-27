@@ -41,6 +41,9 @@ RUN \
 
 COPY --chown=node:node . .
 
+# Copy librechat.yaml config file if it exists
+COPY --chown=node:node librechat.yaml* /app/ || true
+
 RUN \
     # React client build with configurable memory
     NODE_OPTIONS="--max-old-space-size=${NODE_MAX_OLD_SPACE_SIZE}" npm run frontend; \
