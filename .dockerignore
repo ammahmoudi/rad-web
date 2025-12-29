@@ -13,5 +13,15 @@ librechat.example.yaml
 Dockerfile*
 docs
 
-# Ignore all hidden files
-.*
+# Ignore specific hidden files
+.git
+.gitignore
+.gitattributes
+.github
+.vscode
+.dockerignore
+.editorconfig
+.eslintrc*
+.prettierrc*
+.DS_Store
+.env*

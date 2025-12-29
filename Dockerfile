@@ -39,10 +39,10 @@ RUN \
     npm config set fetch-retry-mintimeout 15000 ; \
     npm ci --no-audit
 
-# Copy configuration file explicitly before general copy
-COPY --chown=node:node librechat.yaml ./librechat.yaml
-
 COPY --chown=node:node . .
+
+# Copy configuration file explicitly after general copy to ensure it's included
+COPY --chown=node:node librechat.yaml ./librechat.yaml
 
 RUN \
     # React client build with configurable memory
