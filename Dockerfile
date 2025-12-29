@@ -39,6 +39,9 @@ RUN \
     npm config set fetch-retry-mintimeout 15000 ; \
     npm ci --no-audit
 
+# Copy configuration file explicitly before general copy
+COPY --chown=node:node librechat.yaml ./librechat.yaml
+
 COPY --chown=node:node . .
 
 RUN \
